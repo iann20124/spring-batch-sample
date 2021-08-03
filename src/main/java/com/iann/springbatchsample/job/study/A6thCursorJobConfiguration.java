@@ -7,6 +7,7 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
@@ -32,6 +33,7 @@ public class A6thCursorJobConfiguration {
     @Bean
     public Job jdbcCursorItemReaderJob() {
         return jobBuilderFactory.get(StudyJobName.SIXTH_CURSOR_JOB)
+                .incrementer(new RunIdIncrementer()) //
                 .start(jdbcCursorItemReaderStep())
                 .build();
     }
@@ -66,3 +68,8 @@ public class A6thCursorJobConfiguration {
         };
     }
 }
+
+
+/**
+ * fetchSize, pageSize, chunkSize와의 차이점 및 연관관계를 조사해 봐야겠다.
+ * */

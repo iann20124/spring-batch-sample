@@ -28,8 +28,10 @@ spring:
 spring.batch.job.names: ${job.name:NONE}
 
 spring.jpa:
+  hibernate.ddl-auto: update
   show-sql: true
   properties.hibernate.format_sql: true
+
 
 
 # mail sender
