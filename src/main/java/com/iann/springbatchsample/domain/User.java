@@ -36,4 +36,12 @@ public class User {
         this.age++;
     }
 
+    public User(String email, String name, LocalDate birthdate, Integer age) {
+        this.email = email;
+        this.name = name;
+        this.birthdate = birthdate;
+        this.age = age;
+        this.active = true;
+    }
+
 }

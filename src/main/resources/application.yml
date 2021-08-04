@@ -15,9 +15,9 @@ spring:
   profiles: mysql
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:3306/spring-batch
+      jdbc-url: jdbc:mysql://localhost:3306/spring-batch?serverTimezone=UTC&characterEncoding=UTF-8
       username: root
-      password: password
+      password: root
       driver-class-name: com.mysql.jdbc.Driver
 
 
@@ -28,6 +28,7 @@ spring:
 spring.batch.job.names: ${job.name:NONE}
 
 spring.jpa:
+  generate-ddl: true
   hibernate.ddl-auto: update
   show-sql: true
   properties.hibernate.format_sql: true
@@ -39,7 +40,8 @@ spring.mail:
   host: smtp.gmail.com
   port: 587
   username: iann20124test@gmail.com
-  password: test1234!
+  password: test1234!N
   properties.mail.smtp:
     auth: true
     starttls.enable: true
+
